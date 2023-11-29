@@ -1,6 +1,7 @@
 #include <iostream>
 
-int main(int argc, char* argv[]) {
+int main(int argc, char* argv[]) 
+{
 	int k = 0;
 	int s = 0;
 	int l = 0;
@@ -15,11 +16,13 @@ int main(int argc, char* argv[]) {
 			l = l / 10;
 		}
 		s = s * 10 + l;
-		if (s == i) {
+		if (s == i) 
+		{
 			counter++;
 		}
 		s = 0;
 	}
 	std::cout << counter << std::endl;
-	return 0;
+
+	return EXIT_SUCCESS;
 }

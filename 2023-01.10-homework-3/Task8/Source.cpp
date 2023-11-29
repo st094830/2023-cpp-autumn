@@ -1,6 +1,7 @@
 #include <iostream>
 
-int main(int argc, char* argv[]) {
+int main(int argc, char* argv[]) 
+{
 	int a = 0;
 	int b = 0;
 	int n = 0;
@@ -12,18 +13,21 @@ int main(int argc, char* argv[]) {
 	std::cin >> n;
 	if ((n <= a) || (n <= b))
 	{
-		if (((n + b) % a) == 0) {
+		if (((n + b) % a) == 0) 
+		{
 			while ((n + b) > t)
 			{
 
-				if (b_curt + a_curt > b) {
+				if (b_curt + a_curt > b) 
+				{
 					a_curt = a_curt - (b - b_curt);
 					std::cout << ">B" << std::endl;
 					std::cout << "A>B" << std::endl;
 					b_curt = a_curt;
 					a_curt = 0;
 				}
-				else {
+				else 
+				{
 					b_curt = b_curt + a_curt;
 					a_curt = 0;
 				}
@@ -33,18 +37,21 @@ int main(int argc, char* argv[]) {
 				std::cout << "A>B" << std::endl;
 			}
 		}
-		else if (((a + n) % (b)) == 0) {
+		else if (((a + n) % (b)) == 0) 
+		{
 			while ((a + n) > t)
 			{
 
-				if (b_curt + a_curt > a) {
+				if (b_curt + a_curt > a) 
+				{
 					b_curt = b_curt - (a - a_curt);
 					std::cout << ">A" << std::endl;
 					std::cout << "B>A" << std::endl;
 					a_curt = b_curt;
 					b_curt = 0;
 				}
-				else {
+				else 
+				{
 					a_curt = a_curt + b_curt;
 					b_curt = 0;
 				}
@@ -54,18 +61,21 @@ int main(int argc, char* argv[]) {
 				std::cout << "B>A" << std::endl;
 			}
 		}
-		else if ((b - n) % (a) == 0) {
+		else if ((b - n) % (a) == 0) 
+		{
 			while ((b - n) > t)
 			{
 
-				if (b_curt + a_curt > b) {
+				if (b_curt + a_curt > b) 
+				{
 					a_curt = a_curt - (b - b_curt);
 					std::cout << ">B" << std::endl;
 					std::cout << "A>B" << std::endl;
 					b_curt = a_curt;
 					a_curt = 0;
 				}
-				else {
+				else 
+				{
 					b_curt = b_curt + a_curt;
 					a_curt = 0;
 				}
@@ -75,18 +85,21 @@ int main(int argc, char* argv[]) {
 				std::cout << "A>B" << std::endl;
 			}
 		}
-		else if (((a - n) % (b)) == 0) {
+		else if (((a - n) % (b)) == 0) 
+		{
 			while ((a - n) > t)
 			{
 
-				if (b_curt + a_curt > a) {
+				if (b_curt + a_curt > a) 
+				{
 					b_curt = b_curt - (a - a_curt);
 					std::cout << ">A" << std::endl;
 					std::cout << "B>A" << std::endl;
 					a_curt = b_curt;
 					b_curt = 0;
 				}
-				else {
+				else 
+				{
 					a_curt = a_curt + b_curt;
 					b_curt = 0;
 				}
@@ -96,12 +109,15 @@ int main(int argc, char* argv[]) {
 				std::cout << "B>A" << std::endl;
 			}
 		}
-		else {
+		else 
+		{
 			std::cout << "Impossible" << std::endl;
 		}
 	}
-	else {
+	else 
+	{
 		std::cout << "Impossible" << std::endl;
 	}
-	return 0;
+
+	return EXIT_SUCCESS;
 }
