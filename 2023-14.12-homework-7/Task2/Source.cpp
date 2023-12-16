@@ -5,14 +5,14 @@
 
 // returns string which contains given [a] and [b] strings back-to-back. 
 
-char * strCat(const char * a, const char * b) 
+char* strCat(const char* a, const char* b)
 {
 	char* sumStr = (char*)malloc(sizeof(char) * (sizeof(a) + sizeof(b)));
-	for (int i = 0; i < sizeof(a); ++i) 
+	for (int i = 0; i < sizeof(a); ++i)
 	{
 		sumStr[i] = a[i];
 	}
-	for (int j = 0; j < sizeof(b); ++j) 
+	for (int j = 0; j < sizeof(b); ++j)
 	{
 		sumStr[j + sizeof(a)] = b[j];
 	}
@@ -21,16 +21,16 @@ char * strCat(const char * a, const char * b)
 
 //finds given [find] in [line], if there are no matches 0 is returned.
 
-int strStr(const char * line, const char * find) 
+int strStr(const char* line, const char* find)
 {
 	int start = 0;
 	int end = 0;
-	for (int i = 0; i < sizeof(line); ++i) 
+	for (int i = 0; i < sizeof(line); ++i)
 	{
-		if (line[i] == find[0]) 
+		if (line[i] == find[0])
 		{
 			char* add = subStr(line, i, i + sizeof(find));
-			if (strCmp(add, find) == 0) 
+			if (strCmp(add, find) == 0)
 			{
 				return i;
 			}
@@ -42,7 +42,7 @@ int strStr(const char * line, const char * find)
 
 // returns part of the given string from [start] symbol to [end] symbol.
 
-char * subStr(const char * line, int start, int end) 
+char* subStr(const char* line, int start, int end)
 {
 	int res = 0;
 	char answer[70000];
@@ -65,7 +65,7 @@ int min(int a, int b)
 	return(a >= b ? a : b);
 }
 
-int strCmp(const char * a, const char * b) 
+int strCmp(const char* a, const char* b)
 {
 	int notEqualPoint = 0;
 	for (int i = 0; i < min(sizeof(a), sizeof(b)); ++i)
@@ -76,7 +76,7 @@ int strCmp(const char * a, const char * b)
 			break;
 		}
 	}
-	if (!notEqualPoint) 
+	if (!notEqualPoint)
 	{
 		return (sizeof(a) == sizeof(b) ? 0 : sizeof(a) + 1);
 	}
@@ -84,12 +84,12 @@ int strCmp(const char * a, const char * b)
 
 //multiplicates string by number.
 
-char * strMult(const char* c, int n) 
+char* strMult(const char* c, int n)
 {
 	char* r = (char*)malloc(sizeof(c) * n);
-	for (int i = 0; i < n; ++i) 
+	for (int i = 0; i < n; ++i)
 	{
-		for (int j = 0; j < sizeof(c); ++j) 
+		for (int j = 0; j < sizeof(c); ++j)
 		{
 			r[j + sizeof(c) * i] = c[j];
 		}

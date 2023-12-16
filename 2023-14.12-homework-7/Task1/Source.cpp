@@ -1,4 +1,4 @@
-﻿#define _CRT_SECURE_NO_WARNINGS
+#define _CRT_SECURE_NO_WARNINGS
 #include <cstdio>
 #include <cstdlib>
 
@@ -42,20 +42,20 @@ void ReadLines(char* filename, char** lines, int maxlen)
 }
 
 
-bool sentEnd(char c) 
+bool sentEnd(char c)
 {
 	return (c == '.' || c == '!' || c == '?');
 }
 
 
-bool wordEnd(char c) 
+bool wordEnd(char c)
 {
 	return (c == '\0' || c == ' ');
 }
 
-char * strCpy(char *destination, const char *source) {
+char* strCpy(char* destination, const char* source) {
 	int res = 0;
-	while (source[res+1] != '\0') 
+	while (source[res + 1] != '\0')
 	{
 		destination[res] = source[res];
 		res++;
@@ -63,18 +63,18 @@ char * strCpy(char *destination, const char *source) {
 	return destination;
 }
 
-char * subStr(const char *line, int start, int end) 
+char* subStr(const char* line, int start, int end)
 {
 	int res = 0;
 	char answer[70000];
-	for (int i = 0; i <= end- start; ++i) 
+	for (int i = 0; i <= end - start; ++i)
 	{
 		answer[i] = line[start + i];
 	}
 	return answer;
 }
 
-int main(int argc, char* argv[])
+int main(int argc, char** argv)
 {
 	int w = 0;
 	int h = 0;
@@ -88,12 +88,12 @@ int main(int argc, char* argv[])
 	}
 	ReadLines(filename, lines, w);
 
-	//превращение файла в строку
-	char text[700000];
+	//turning file into a single string
+	char* text = (char*)malloc(sizeof(char) * (h * w));
 
-	for (int i = 0; i < h; ++i) 
+	for (int i = 0; i < h; ++i)
 	{
-		for (int j = 0; j < w; ++j) 
+		for (int j = 0; j < w; ++j)
 		{
 			text[i * w + j] = lines[i][j];
 		}
@@ -103,18 +103,18 @@ int main(int argc, char* argv[])
 	int index = 0;
 	int currtSent = 0;
 	int** lengths = (int**)malloc(sizeof(int*) * (h * w));
-	for (int i = 0; i < h * w; ++i) 
+	for (int i = 0; i < h * w; ++i)
 	{
 		*(lengths + i) = (int*)malloc(sizeof(int) * 2);
 	}
 	char** sentences = (char**)malloc(sizeof(char*) * (h * w));
-	for (int i = 0; i < h * w; ++i) 
+	for (int i = 0; i < h * w; ++i)
 	{
-		char sentence[50000];
+		char* sentence = (char*)malloc(sizeof(char) * (h * w));
 		sentences[i] = sentence;
 	}
 	lengths[0][0] = 1;
-	for (int i = 0; i < h*w - 1; ++i) 
+	for (int i = 0; i < h * w - 1; ++i)
 	{
 		if (wordEnd(text[i]))
 		{
@@ -134,7 +134,7 @@ int main(int argc, char* argv[])
 	int longestSentenceStart = 0;
 	int longestSentenceEnd = 0;
 	int maximumLength = 0;
-	for (int i = 0; i <= currtSent; ++i) 
+	for (int i = 0; i <= currtSent; ++i)
 	{
 		if (lengths[i][1] > maximumLength)
 		{
@@ -144,7 +144,10 @@ int main(int argc, char* argv[])
 		}
 	}
 
-	printf("%s", subStr(text, longestSentenceStart, longestSentenceEnd));
+	FILE* f = fopen("out.txt", "w");
+
+	fprintf(f, "%s", subStr(text, longestSentenceStart, longestSentenceEnd));
+	fclose(f);
 
 	for (int i = 0; i < h; ++i)
 	{
