@@ -1,9 +1,9 @@
-#define _CRT_SECURE_NO_WARNINGS
+﻿#define _CRT_SECURE_NO_WARNINGS
 #include <cstdio>
 #include <cstdlib>
 
 
-// returns string which contains given [a] and [b] strings back-to-back. 
+// returns string which contains given [a] and [b] strings back-to-back. ₍^._.^₎ 𐒡
 
 char* strCat(const char* a, const char* b)
 {
