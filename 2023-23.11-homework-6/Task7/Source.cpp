@@ -17,10 +17,7 @@ void Better_hanoi(int count, int first, int last)
 	}
 	int add = 6 - first - last;
 	Better_hanoi(count - 1, first, add);
-	if (first) 
-	{
-		shift(first, last);
-	}
+	shift(first, last);
 	Better_hanoi(count - 1, add, last);
 }
  
@@ -39,20 +36,25 @@ void Better_hanoi(int count, int first, int last)
 
 void sort() 
 {
+	int counter = 0;
 	while (n[1] > 0) 
 	{
 		int k = d[1][n[1] - 1];
-		while ((n[3] > 0) && (k > d[3][n[3] - 1]))
+		for (int i = 0; i < n[3]; ++i) 
 		{
-			Better_hanoi(d[3][n[3] - 1], 2, 3);
-			int* changer_argv = d[2];
-			int changer_argc = n[2];
-			d[2] = d[3];
-			n[2] = n[3];
-			d[3] = changer_argv;
-			n[3] = changer_argc;
+			if (d[1][n[1] - 1] > d[3][n[3] - 1]) 
+			{
+				++counter;
+			}
+			else 
+			{
+				break;
+			}
 		}
-	Better_hanoi(1, 1, 3);	
+		Better_hanoi(counter, 3, 2);
+		shift(1, 3);
+		Better_hanoi(counter, 2, 3);
+		counter = 0;
 	}
 	while (n[3] > 0) 
 	{
