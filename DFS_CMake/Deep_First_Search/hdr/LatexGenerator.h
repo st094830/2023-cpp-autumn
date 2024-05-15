@@ -16,6 +16,7 @@ public:
 	std::filesystem::path createDirectory();
 	void DataWriterMatrix(const std::vector<std::vector<int>> _matrix);
 	void DataWriterAdjacency(const std::vector<std::vector<int>> _adjacency);
+	void DataWriterConCom(const std::vector<std::vector<int>> _conComponents);
 	void DataWriterIsTree(const std::vector<std::vector<int>> Matrix, bool isTree);
 	void DataWriterBridges(const std::vector<SEdge> _bridges);
 	void DataWriterSSC(const std::vector<std::vector<int>> _SCC);

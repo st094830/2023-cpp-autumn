@@ -29,6 +29,9 @@ public:
 	// Соседи вершины at
 	void connectedVertexesCount(int at);
 
+	// Компоненты связности
+	void conComponents();
+
 	// Проверка на дерево (включая проверку на циклы)
 	bool HasCycles(int current, int source);
 	bool IsTree();
@@ -41,8 +44,14 @@ public:
 	void strongConComponents();
 
 	// Вывод данных в формате .tex
-	void Solve(std::string function);
+	void Solve();
 	
+	void SolveMatrix();
+	void SolveAdjacency();
+	void SolveTreeCheck();
+	void SolveConComponents();
+	void SolveBridgeCheck();
+	void SolveStrongCC();
 	
 private:
 	int getVertexesCountFromEdges();
@@ -55,6 +64,9 @@ private:
 	void dispose();
 	void disposeMatrix();
 	void disposeEdges();
+
+	// Solves
+	
 
 	std::vector<SEdge> _edgesList;
 	std::vector<std::vector<int>> _adjacency;

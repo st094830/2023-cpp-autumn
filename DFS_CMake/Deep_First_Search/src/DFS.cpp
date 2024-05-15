@@ -105,39 +105,44 @@ void CGraph::connectedVertexesCount(int at)
 	std::cout << count - 1 << std::endl;
 }
 
-void CGraph::Solve(std::string function)  
+void CGraph::Solve()  
 {
 	LatexGenerator latex("Results");
 	initEdges();
 	initMatrixFromEdges();
 	initAdjacencyList();
-	if (function == "Matrix") {
-		latex.DataWriterMatrix(_matrix);
-		
-	}
-	if (function == "Adjacency") {
-		latex.DataWriterAdjacency(_adjacency);
-	}
-	
-
-	if (function == "TreeCheck") 
-	{
-		latex.DataWriterIsTree(_matrix, IsTree());
-	}
-	else if (function == "BridgeCheck") 
-	{
-		bridgeSearch();
-		latex.DataWriterBridges(_bridges);
-	}
-	else if (function == "SCC") 
-	{
-		strongConComponents();
-		latex.DataWriterSSC(_SCC);
-	}
-	else 
-	{
-		std::cerr << "Unable to recognize this command." << std::endl;
-	}
+}
+void CGraph::SolveMatrix()
+{
+	LatexGenerator latex("Results");
+	latex.DataWriterMatrix(_matrix);
+}
+void CGraph::SolveAdjacency()
+{
+	LatexGenerator latex("Results");
+	latex.DataWriterAdjacency(_adjacency);
+}
+void CGraph::SolveTreeCheck()
+{
+	LatexGenerator latex("Results");
+	latex.DataWriterIsTree(_matrix, IsTree());
+}
+void CGraph::SolveConComponents()
+{
+	LatexGenerator latex("Results");
+	latex.DataWriterConCom(_conComponents);
+}
+void CGraph::SolveBridgeCheck()
+{
+	LatexGenerator latex("Results");
+	bridgeSearch();
+	latex.DataWriterBridges(_bridges);
+}
+void CGraph::SolveStrongCC()
+{
+	LatexGenerator latex("Results");
+	strongConComponents();
+	latex.DataWriterSSC(_SCC);
 }
 
 
@@ -203,6 +208,20 @@ bool CGraph::IsTree()
 	}
 	delete[] _visited;
 	return true;
+}
+
+void CGraph::conComponents()
+{
+	for (int i = 0; i < _vertexes; ++i)
+	{
+		if (!_visited[i])
+		{
+			std::vector<int> component;
+			_visited = new bool[_vertexes] {false};
+			DFSforConComps(i, component);
+			_conComponents.push_back(component);
+		}
+	}
 }
 
 void CGraph::DFSforConComps(int at, std::vector<int>& component) 

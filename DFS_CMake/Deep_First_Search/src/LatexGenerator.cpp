@@ -3,7 +3,6 @@
 LatexGenerator::LatexGenerator(const std::string _pathName) : directory(_pathName)
 {
 	std::filesystem::path dataDir = directory / "data";
-	std::filesystem::remove_all(dataDir);
 	std::filesystem::create_directories(dataDir);
 }
 
@@ -91,6 +90,39 @@ void LatexGenerator::DataWriterIsTree(const std::vector<std::vector<int>> _matri
 	latexCode << "\\end{document}";
 
 }
+
+
+void LatexGenerator::DataWriterConCom(std::vector<std::vector<int>> _conComponents)
+{
+	std::filesystem::path localDir = createDirectory();
+	std::ofstream latexCode(localDir / "Connected_components.tex");
+	latexCode << "\\documentclass{article}\n";
+	latexCode << "\\usepackage{amsmath}\n";
+	latexCode << "\\usepackage[russian]{babel}\n";
+	latexCode << "\\begin{document}\n\n";
+	if (_conComponents.size() > 0) {
+		latexCode << "List of connected components:\n";
+		for (size_t i = 0; i < _conComponents.size(); ++i)
+		{
+			for (size_t j = 0; j < _conComponents[i].size(); ++j)
+			{
+				latexCode << std::to_string(_conComponents[i][j]);
+				if (j < (_conComponents[i].size() - 1))
+				{
+					latexCode << " ";
+				}
+			}
+			latexCode << "\n";
+		}
+	}
+	else 
+	{
+		latexCode << "No connectivity components can be found\n\n";
+	}
+	
+	latexCode << "\\end{document}";
+}
+
 
 void LatexGenerator::DataWriterBridges(std::vector<SEdge> _bridges)
 {
