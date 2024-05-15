@@ -5,15 +5,14 @@
 #include <string>
 #include <vector>
 #include <fstream>
-#include <cstdlib>
-#include <DFS.h>
+#include "DFS.h"
 
 struct LatexGenerator
 {
 public:
 	LatexGenerator() {};
 	LatexGenerator(const std::string _pathName);
-	std::filesystem::path createDirectory();
+	~LatexGenerator() { std::filesystem::remove_all(directory); }
 	void DataWriterMatrix(const std::vector<std::vector<int>> _matrix);
 	void DataWriterAdjacency(const std::vector<std::vector<int>> _adjacency);
 	void DataWriterConCom(const std::vector<std::vector<int>> _conComponents);

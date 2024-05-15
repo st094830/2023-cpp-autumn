@@ -67,14 +67,6 @@ void CGraph::initMatrixFromEdges()
 }
 
 
-
-void CGraph::DFSprep(int target)
-{
-	_visited = new bool [_vertexes] {false};
-	DFS(target);
-
-}
-
 void CGraph::DFS(int at)
 {
 	if (_visited[at])
@@ -93,7 +85,8 @@ void CGraph::DFS(int at)
 
 void CGraph::connectedVertexesCount(int at) 
 {
-	DFSprep(at - 1);
+	_visited = new bool [_vertexes] {false};
+	DFS(at - 1);
 	int count = 0;
 	for (int i = 0; i < _vertexes; ++i) 
 	{
@@ -107,7 +100,6 @@ void CGraph::connectedVertexesCount(int at)
 
 void CGraph::Solve()  
 {
-	LatexGenerator latex("Results");
 	initEdges();
 	initMatrixFromEdges();
 	initAdjacencyList();

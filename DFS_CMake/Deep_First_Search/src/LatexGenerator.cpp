@@ -2,22 +2,14 @@
 
 LatexGenerator::LatexGenerator(const std::string _pathName) : directory(_pathName)
 {
-	std::filesystem::path dataDir = directory / "data";
+	std::filesystem::path dataDir = directory;
 	std::filesystem::create_directories(dataDir);
-}
-
-std::filesystem::path LatexGenerator::createDirectory() 
-{
-	std::filesystem::path localDir = directory / "data" / "LaTeX_material";
-	std::filesystem::create_directories(localDir);
-	return localDir;
 }
 
 
 void LatexGenerator::DataWriterMatrix(const std::vector<std::vector<int>> _matrix)
 {
-	std::filesystem::path localDir = createDirectory();
-	std::ofstream latexCode(localDir / "Matrix.tex");
+	std::ofstream latexCode(directory / "Matrix.tex");
 	latexCode << "\\documentclass{article}\n";
 	latexCode << "\\usepackage{amsmath}\n";
 	latexCode << "\\usepackage[russian]{babel}\n";
@@ -40,8 +32,7 @@ void LatexGenerator::DataWriterMatrix(const std::vector<std::vector<int>> _matri
 }
 void LatexGenerator::DataWriterAdjacency(const std::vector<std::vector<int>> _adjacency)
 {
-	std::filesystem::path localDir = createDirectory();
-	std::ofstream latexCode(localDir / "Adjacency_List.tex");
+	std::ofstream latexCode(directory / "Adjacency_List.tex");
 	latexCode << "\\documentclass{article}\n";
 	latexCode << "\\usepackage{amsmath}\n";
 	latexCode << "\\usepackage[russian]{babel}\n";
@@ -66,8 +57,7 @@ void LatexGenerator::DataWriterAdjacency(const std::vector<std::vector<int>> _ad
 
 void LatexGenerator::DataWriterIsTree(const std::vector<std::vector<int>> _matrix, bool isTree) 
 {
-	std::filesystem::path localDir = createDirectory();
-	std::ofstream latexCode(localDir / "Tree.tex");
+	std::ofstream latexCode(directory / "Tree.tex");
 	latexCode << "\\documentclass{article}\n";
 	latexCode << "\\usepackage{amsmath}\n";
 	latexCode << "\\usepackage[russian]{babel}\n";
@@ -94,8 +84,7 @@ void LatexGenerator::DataWriterIsTree(const std::vector<std::vector<int>> _matri
 
 void LatexGenerator::DataWriterConCom(std::vector<std::vector<int>> _conComponents)
 {
-	std::filesystem::path localDir = createDirectory();
-	std::ofstream latexCode(localDir / "Connected_components.tex");
+	std::ofstream latexCode(directory / "Connected_components.tex");
 	latexCode << "\\documentclass{article}\n";
 	latexCode << "\\usepackage{amsmath}\n";
 	latexCode << "\\usepackage[russian]{babel}\n";
@@ -126,8 +115,7 @@ void LatexGenerator::DataWriterConCom(std::vector<std::vector<int>> _conComponen
 
 void LatexGenerator::DataWriterBridges(std::vector<SEdge> _bridges)
 {
-	std::filesystem::path localDir = createDirectory();
-	std::ofstream latexCode(localDir / "Bridges_list.tex");
+	std::ofstream latexCode(directory / "Bridges_list.tex");
 	latexCode << "\\documentclass{article}\n";
 	latexCode << "\\usepackage{amsmath}\n";
 	latexCode << "\\usepackage[russian]{babel}\n";
@@ -149,8 +137,7 @@ void LatexGenerator::DataWriterBridges(std::vector<SEdge> _bridges)
 
 void LatexGenerator::DataWriterSSC(std::vector<std::vector<int>> _SCC)
 {
-	std::filesystem::path localDir = createDirectory();
-	std::ofstream latexCode(localDir / "SCC.tex");
+	std::ofstream latexCode(directory / "SCC.tex");
 	latexCode << "\\documentclass{article}\n";
 	latexCode << "\\usepackage{amsmath}\n";
 	latexCode << "\\usepackage[russian]{babel}\n";

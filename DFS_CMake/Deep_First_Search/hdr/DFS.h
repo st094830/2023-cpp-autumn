@@ -3,7 +3,6 @@
 #define _DFS_
 
 #include <vector>
-#include <stdio.h>
 #include "SEdge.h"
 #include "LatexGenerator.h"
 #include "GraphReader.h"
@@ -55,32 +54,30 @@ public:
 	
 private:
 	int getVertexesCountFromEdges();
-
-	void DFSforConComps(int at, std::vector<int>& component);
-	void DFSforBridges(int at, int parent, std::vector<bool>& visitedVertices, std::vector<int>& disc, std::vector<int>& low);
-	void DFSforSCC(int at, int vertcount);
-	//
-	std::vector<std::vector<int>> _conComponents;
 	void dispose();
 	void disposeMatrix();
 	void disposeEdges();
-
-	// Solves
-	
-
 	std::vector<SEdge> _edgesList;
-	std::vector<std::vector<int>> _adjacency;
 	std::vector<std::vector<int>> _matrix;
+	std::vector<std::vector<int>> _adjacency;
 	int _vertexes;
 	int _edges;
-	
-	bool* _visited;
 	SEdge* _edge;
+	
+	//DFS-s
+	void DFSforConComps(int at, std::vector<int>& component);
+	void DFSforBridges(int at, int parent, std::vector<bool>& visitedVertices, std::vector<int>& disc, std::vector<int>& low);
+	void DFSforSCC(int at, int vertcount);
+	bool* _visited;
+
+
+	// Solves
+	std::vector<std::vector<int>> _conComponents;
 	std::vector<SEdge> _bridges;
-	int timer = 0;
 	std::vector<std::vector<int>> _SCC;
-
-
+	
+	// SCC Tarjan algthm preparations
+	int timer = 0;
 	std::vector<int> time;
 	std::vector<int> stack;
 	std::vector<int> lowlink;

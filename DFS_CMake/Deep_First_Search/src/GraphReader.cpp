@@ -12,8 +12,15 @@ std::vector<SEdge> GraphReader::readEdges() {
             int weight;
             char ch;
 
-            iss >> start >> end >> weight;
-            edges.push_back({ start - 1, end - 1, weight });
+            if (iss >> start >> end >> weight) 
+            {
+                edges.push_back({ start - 1, end - 1, weight });
+            }
+            else 
+            {
+                std::cerr << "Invalid graph syntax";
+            }
+            
         }
         file.close();
     }
