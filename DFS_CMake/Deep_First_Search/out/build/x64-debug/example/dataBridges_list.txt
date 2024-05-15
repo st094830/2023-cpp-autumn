@@ -1,0 +1,9 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage[russian]{babel}
+\begin{document}
+
+
+List of bridges:
+
+\end{document}

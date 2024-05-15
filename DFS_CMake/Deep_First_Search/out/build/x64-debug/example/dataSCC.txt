@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage[russian]{babel}
+\begin{document}
+
+
+List of strong connectivity components:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

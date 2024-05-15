@@ -1,0 +1,318 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Переменная \"CGraph::_visited\" не инициализирована. Всегда инициализируйте переменную-член (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/ASUS/source/repos/2023-cpp-autumn/DFS_CMake/Deep_First_Search/hdr/DFS.h"
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 2
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CGraph::{ctor}",
+                  "decoratedName": "??0CGraph@@QEAA@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "CGraph::_visited"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Переменная \"CGraph::_edge\" не инициализирована. Всегда инициализируйте переменную-член (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/ASUS/source/repos/2023-cpp-autumn/DFS_CMake/Deep_First_Search/hdr/DFS.h"
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 2
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CGraph::{ctor}",
+                  "decoratedName": "??0CGraph@@QEAA@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "CGraph::_edge"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Переменная \"CGraph::_visited\" не инициализирована. Всегда инициализируйте переменную-член (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/ASUS/source/repos/2023-cpp-autumn/DFS_CMake/Deep_First_Search/hdr/DFS.h"
+                },
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 2
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CGraph::{ctor}",
+                  "decoratedName": "??0CGraph@@QEAA@HH@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "CGraph::_visited"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Переменная \"CGraph::_edge\" не инициализирована. Всегда инициализируйте переменную-член (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/ASUS/source/repos/2023-cpp-autumn/DFS_CMake/Deep_First_Search/hdr/DFS.h"
+                },
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 2
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CGraph::{ctor}",
+                  "decoratedName": "??0CGraph@@QEAA@HH@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "CGraph::_edge"
+          }
+        },
+        {
+          "ruleId": "C6001",
+          "message": {
+            "text": "Использование неинициализированной памяти \"i\"."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/ASUS/source/repos/2023-cpp-autumn/DFS_CMake/Deep_First_Search/src/DFS.cpp"
+                },
+                "region": {
+                  "startLine": 133,
+                  "startColumn": 14
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CGraph::connectedVertexesCount",
+                  "decoratedName": "?connectedVertexesCount@CGraph@@QEAAXH@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/ASUS/source/repos/2023-cpp-autumn/DFS_CMake/Deep_First_Search/src/DFS.cpp"
+                          },
+                          "region": {
+                            "startLine": 131,
+                            "startColumn": 5
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/ASUS/source/repos/2023-cpp-autumn/DFS_CMake/Deep_First_Search/src/DFS.cpp"
+                          },
+                          "region": {
+                            "startLine": 132,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/ASUS/source/repos/2023-cpp-autumn/DFS_CMake/Deep_First_Search/src/DFS.cpp"
+                          },
+                          "region": {
+                            "startLine": 133,
+                            "startColumn": 11
+                          }
+                        },
+                        "message": {
+                          "text": "Инициализация \"i\" не выполнена"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "essential"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/ASUS/source/repos/2023-cpp-autumn/DFS_CMake/Deep_First_Search/src/DFS.cpp"
+                          },
+                          "region": {
+                            "startLine": 133,
+                            "startColumn": 16
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/ASUS/source/repos/2023-cpp-autumn/DFS_CMake/Deep_First_Search/src/DFS.cpp"
+                          },
+                          "region": {
+                            "startLine": 140,
+                            "startColumn": 21
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/ASUS/source/repos/2023-cpp-autumn/DFS_CMake/Deep_First_Search/src/DFS.cpp"
+                          },
+                          "region": {
+                            "startLine": 141,
+                            "startColumn": 1
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/ASUS/source/repos/2023-cpp-autumn/DFS_CMake/Deep_First_Search/src/DFS.cpp"
+                          },
+                          "region": {
+                            "startLine": 133,
+                            "startColumn": 14
+                          }
+                        },
+                        "message": {
+                          "text": "\"i\" используется, но, возможно, не инициализировано"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.39.33523.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///C:/Users/ASUS/source/repos/2023-cpp-autumn/DFS_CMake/Deep_First_Search/hdr/DFS.h"
+          },
+          "roles": [
+            "resultFile"
+          ],
+          "hashes": {
+            "sha-256": "065fedc2c273d4bb40a6acd5f6a60a4f8dfacc3d654e8cde0deee966beb28a50"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///C:/Users/ASUS/source/repos/2023-cpp-autumn/DFS_CMake/Deep_First_Search/src/DFS.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "sha-256": "e7885286f5769de692aa84dfb0c6543c34123e9f7983e730d96f980c90197a20"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/asus/source/repos/2023-cpp-autumn/dfs_cmake/deep_first_search/hdr/sedge.h"
+          },
+          "hashes": {
+            "sha-256": "dcbb92ec423a07b8746335dae03eda8644c67d59d61337b79d30237c7e97c30c"
+          }
+        }
+      ]
+    }
+  ]
+}

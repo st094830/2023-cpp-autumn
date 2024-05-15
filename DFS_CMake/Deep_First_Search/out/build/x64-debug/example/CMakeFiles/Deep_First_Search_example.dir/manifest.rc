@@ -1,0 +1,2 @@
+#pragma code_page(65001)
+1 /* CREATEPROCESS_MANIFEST_RESOURCE_ID */ 24 /* RT_MANIFEST */ "C:/Users/ASUS/source/repos/2023-cpp-autumn/DFS_CMake/Deep_First_Search/out/build/x64-debug/example/CMakeFiles/Deep_First_Search_example.dir/embed.manifest"

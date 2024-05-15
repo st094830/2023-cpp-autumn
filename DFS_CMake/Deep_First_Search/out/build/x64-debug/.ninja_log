@@ -1,0 +1,25 @@
+# ninja log v5
+56	881	7374531518983346	example/CMakeFiles/Deep_First_Search_example.dir/main.cpp.obj	4cd0af7218390395
+3	899	7374531519243349	CMakeFiles/Deep_First_Search.dir/src/DFS.cpp.obj	9e00c90897d6a706
+900	1018	7374531520409229	Deep_First_Searchd.lib	88cbeb3e72982f36
+27	891	7374531519153359	CMakeFiles/Deep_First_Search.dir/src/GraphReader.cpp.obj	4d32481306ceb4cb
+1018	1511	7374531524537868	example/Deep_First_Search_example.exe	ddc15269fc983ea5
+17	900	7374531519243349	CMakeFiles/Deep_First_Search.dir/src/LatexGenerator.cpp.obj	19321ec8108e3f37
+35	960	7370352650295630	CMakeFiles/Deep_First_Search.dir/src/LL.cpp.obj	c1bf16b13b6e5c4f
+2	585	7373387034081660	CMakeFiles/Deep_First_Search.dir/src/DataReader.cpp.obj	e1dfb4ac8819fd37
+10	652	7374542690039354	example/CMakeFiles/Deep_First_Search_example.dir/main.cpp.obj	4cd0af7218390395
+1	716	7374542690674601	CMakeFiles/Deep_First_Search.dir/src/LatexGenerator.cpp.obj	19321ec8108e3f37
+716	832	7374542691803898	Deep_First_Searchd.lib	88cbeb3e72982f36
+832	1154	7374542694398544	example/Deep_First_Search_example.exe	ddc15269fc983ea5
+50	848	7374545392284966	example/CMakeFiles/Deep_First_Search_example.dir/main.cpp.obj	4cd0af7218390395
+26	850	7374545392324933	CMakeFiles/Deep_First_Search.dir/src/GraphReader.cpp.obj	4d32481306ceb4cb
+2	863	7374545392534980	CMakeFiles/Deep_First_Search.dir/src/DFS.cpp.obj	9e00c90897d6a706
+13	865	7374545392570148	CMakeFiles/Deep_First_Search.dir/src/LatexGenerator.cpp.obj	19321ec8108e3f37
+865	978	7374545393676495	Deep_First_Searchd.lib	88cbeb3e72982f36
+978	1440	7374545397608503	example/Deep_First_Search_example.exe	ddc15269fc983ea5
+43	821	7374546161201376	example/CMakeFiles/Deep_First_Search_example.dir/main.cpp.obj	4cd0af7218390395
+20	830	7374546161321375	CMakeFiles/Deep_First_Search.dir/src/GraphReader.cpp.obj	4d32481306ceb4cb
+11	840	7374546161431345	CMakeFiles/Deep_First_Search.dir/src/LatexGenerator.cpp.obj	19321ec8108e3f37
+2	904	7374546162069652	CMakeFiles/Deep_First_Search.dir/src/DFS.cpp.obj	9e00c90897d6a706
+904	1014	7374546163175044	Deep_First_Searchd.lib	88cbeb3e72982f36
+1014	1358	7374546165915865	example/Deep_First_Search_example.exe	ddc15269fc983ea5

@@ -1,0 +1,6 @@
+C:/Users/ASUS/source/repos/2023-cpp-autumn/DFS_CMake/Deep_First_Search/out/build/x64-debug/CMakeFiles/Deep_First_Search.dir
+C:/Users/ASUS/source/repos/2023-cpp-autumn/DFS_CMake/Deep_First_Search/out/build/x64-debug/CMakeFiles/edit_cache.dir
+C:/Users/ASUS/source/repos/2023-cpp-autumn/DFS_CMake/Deep_First_Search/out/build/x64-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/ASUS/source/repos/2023-cpp-autumn/DFS_CMake/Deep_First_Search/out/build/x64-debug/example/CMakeFiles/Deep_First_Search_example.dir
+C:/Users/ASUS/source/repos/2023-cpp-autumn/DFS_CMake/Deep_First_Search/out/build/x64-debug/example/CMakeFiles/edit_cache.dir
+C:/Users/ASUS/source/repos/2023-cpp-autumn/DFS_CMake/Deep_First_Search/out/build/x64-debug/example/CMakeFiles/rebuild_cache.dir
