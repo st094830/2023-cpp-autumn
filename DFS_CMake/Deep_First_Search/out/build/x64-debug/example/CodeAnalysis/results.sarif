@@ -7,6 +7,64 @@
         {
           "ruleId": "C26495",
           "message": {
+            "text": "Переменная \"CGraph::_edge\" не инициализирована. Всегда инициализируйте переменную-член (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/ASUS/source/repos/2023-cpp-autumn/DFS_CMake/Deep_First_Search/hdr/DFS.h"
+                },
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 2
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CGraph::{ctor}",
+                  "decoratedName": "??0CGraph@@QEAA@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "CGraph::_edge"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Переменная \"CGraph::_timer\" не инициализирована. Всегда инициализируйте переменную-член (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/ASUS/source/repos/2023-cpp-autumn/DFS_CMake/Deep_First_Search/hdr/DFS.h"
+                },
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 2
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CGraph::{ctor}",
+                  "decoratedName": "??0CGraph@@QEAA@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "CGraph::_timer"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
             "text": "Переменная \"CGraph::_visited\" не инициализирована. Всегда инициализируйте переменную-член (type.6)."
           },
           "locations": [
@@ -16,7 +74,7 @@
                   "uri": "file:///C:/Users/ASUS/source/repos/2023-cpp-autumn/DFS_CMake/Deep_First_Search/hdr/DFS.h"
                 },
                 "region": {
-                  "startLine": 12,
+                  "startLine": 13,
                   "startColumn": 2
                 }
               },
@@ -45,14 +103,14 @@
                   "uri": "file:///C:/Users/ASUS/source/repos/2023-cpp-autumn/DFS_CMake/Deep_First_Search/hdr/DFS.h"
                 },
                 "region": {
-                  "startLine": 12,
+                  "startLine": 14,
                   "startColumn": 2
                 }
               },
               "logicalLocations": [
                 {
                   "fullyQualifiedName": "CGraph::{ctor}",
-                  "decoratedName": "??0CGraph@@QEAA@XZ",
+                  "decoratedName": "??0CGraph@@QEAA@HH@Z",
                   "kind": "function"
                 }
               ]
@@ -60,6 +118,35 @@
           ],
           "properties": {
             "targetSymbol": "CGraph::_edge"
+          }
+        },
+        {
+          "ruleId": "C26495",
+          "message": {
+            "text": "Переменная \"CGraph::_timer\" не инициализирована. Всегда инициализируйте переменную-член (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/ASUS/source/repos/2023-cpp-autumn/DFS_CMake/Deep_First_Search/hdr/DFS.h"
+                },
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 2
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CGraph::{ctor}",
+                  "decoratedName": "??0CGraph@@QEAA@HH@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "targetSymbol": "CGraph::_timer"
           }
         },
         {
@@ -74,7 +161,7 @@
                   "uri": "file:///C:/Users/ASUS/source/repos/2023-cpp-autumn/DFS_CMake/Deep_First_Search/hdr/DFS.h"
                 },
                 "region": {
-                  "startLine": 13,
+                  "startLine": 14,
                   "startColumn": 2
                 }
               },
@@ -89,35 +176,6 @@
           ],
           "properties": {
             "targetSymbol": "CGraph::_visited"
-          }
-        },
-        {
-          "ruleId": "C26495",
-          "message": {
-            "text": "Переменная \"CGraph::_edge\" не инициализирована. Всегда инициализируйте переменную-член (type.6)."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "file:///C:/Users/ASUS/source/repos/2023-cpp-autumn/DFS_CMake/Deep_First_Search/hdr/DFS.h"
-                },
-                "region": {
-                  "startLine": 13,
-                  "startColumn": 2
-                }
-              },
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "CGraph::{ctor}",
-                  "decoratedName": "??0CGraph@@QEAA@HH@Z",
-                  "kind": "function"
-                }
-              ]
-            }
-          ],
-          "properties": {
-            "targetSymbol": "CGraph::_edge"
           }
         }
       ],
@@ -143,7 +201,7 @@
             "resultFile"
           ],
           "hashes": {
-            "sha-256": "065fedc2c273d4bb40a6acd5f6a60a4f8dfacc3d654e8cde0deee966beb28a50"
+            "sha-256": "8e4a30d0d4e0c7d9fab0a7b49fb7dfda6935c60cc9a885880f690e68259d1309"
           }
         },
         {
@@ -154,7 +212,7 @@
             "analysisTarget"
           ],
           "hashes": {
-            "sha-256": "7dbaa6e39532133dcd99edbfabea81d856c5adb3a8c3be600f852fedf40f9af0"
+            "sha-256": "3e011965a3518d41ae1001b0dcaec46757e2f048b0703635221ab96f85f65fa7"
           }
         },
         {
@@ -162,7 +220,23 @@
             "uri": "file:///c:/users/asus/source/repos/2023-cpp-autumn/dfs_cmake/deep_first_search/hdr/sedge.h"
           },
           "hashes": {
-            "sha-256": "dcbb92ec423a07b8746335dae03eda8644c67d59d61337b79d30237c7e97c30c"
+            "sha-256": "49982a5277c6b1c4f4af6d8f4795e7be1aa5468bdc43a9eeb144c70292616294"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/asus/source/repos/2023-cpp-autumn/dfs_cmake/deep_first_search/hdr/latexgenerator.h"
+          },
+          "hashes": {
+            "sha-256": "9036e139294fcb80d6943695703e55ba6830751813c34ac9030e19ea558dbd71"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/asus/source/repos/2023-cpp-autumn/dfs_cmake/deep_first_search/hdr/graphreader.h"
+          },
+          "hashes": {
+            "sha-256": "23fbc364eb4b4a6eee9474d300c98b17f2ba74a94f1ac41a5f00bbf13d28dade"
           }
         }
       ]

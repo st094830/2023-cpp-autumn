@@ -66,13 +66,68 @@ void CGraph::initMatrixFromEdges()
 	}
 }
 
+void CGraph::initAdjacencyList()
+{
+	_adjacency.resize(_vertexes);
+	for (int i = 0; i < _vertexes; ++i)
+	{
+		for (int j = 0; j < _vertexes; ++j)
+		{
+			if (_matrix[i][j] != 0)
+			{
+				_adjacency[i].push_back(j);
+			}
+		}
+	}
+}
+
+
+void CGraph::Solve(std::string _graphName)  
+{
+	initEdges();
+	initMatrixFromEdges();
+	initAdjacencyList();
+	this->graphName = _graphName;
+}
+void CGraph::SolveMatrix()
+{
+	LatexGenerator latex("Results", graphName);
+	latex.DataWriterMatrix(_matrix);
+}
+void CGraph::SolveAdjacency()
+{
+	LatexGenerator latex("Results", graphName);
+	latex.DataWriterAdjacency(_adjacency);
+}
+void CGraph::SolveTreeCheck()
+{
+	LatexGenerator latex("Results", graphName);
+	latex.DataWriterIsTree(IsTree());
+}
+void CGraph::SolveConComponents()
+{
+	LatexGenerator latex("Results", graphName);
+	conComponents();
+	latex.DataWriterConCom(_conComponents);
+}
+void CGraph::SolveBridgeCheck()
+{
+	LatexGenerator latex("Results", graphName);
+	bridgeSearch();
+	latex.DataWriterBridges(_bridges);
+}
+void CGraph::SolveStrongCC()
+{
+	LatexGenerator latex("Results", graphName);
+	strongConComponents();
+	latex.DataWriterSSC(_SCC);
+}
+
+
+
 
 void CGraph::DFS(int at)
 {
-	if (_visited[at])
-	{
-		return;
-	}
 	_visited[at] = true;
 	for (int i = 0; i < _vertexes; ++i)
 	{
@@ -83,14 +138,16 @@ void CGraph::DFS(int at)
 	}
 }
 
-void CGraph::connectedVertexesCount(int at) 
+
+
+void CGraph::connectedVertexesCount(int at)
 {
 	_visited = new bool [_vertexes] {false};
 	DFS(at - 1);
 	int count = 0;
-	for (int i = 0; i < _vertexes; ++i) 
+	for (int i = 0; i < _vertexes; ++i)
 	{
-		if (_visited[i]) 
+		if (_visited[i])
 		{
 			++count;
 		}
@@ -98,118 +155,76 @@ void CGraph::connectedVertexesCount(int at)
 	std::cout << count - 1 << std::endl;
 }
 
-void CGraph::Solve()  
-{
-	initEdges();
-	initMatrixFromEdges();
-	initAdjacencyList();
-}
-void CGraph::SolveMatrix()
-{
-	LatexGenerator latex("Results");
-	latex.DataWriterMatrix(_matrix);
-}
-void CGraph::SolveAdjacency()
-{
-	LatexGenerator latex("Results");
-	latex.DataWriterAdjacency(_adjacency);
-}
-void CGraph::SolveTreeCheck()
-{
-	LatexGenerator latex("Results");
-	latex.DataWriterIsTree(_matrix, IsTree());
-}
-void CGraph::SolveConComponents()
-{
-	LatexGenerator latex("Results");
-	latex.DataWriterConCom(_conComponents);
-}
-void CGraph::SolveBridgeCheck()
-{
-	LatexGenerator latex("Results");
-	bridgeSearch();
-	latex.DataWriterBridges(_bridges);
-}
-void CGraph::SolveStrongCC()
-{
-	LatexGenerator latex("Results");
-	strongConComponents();
-	latex.DataWriterSSC(_SCC);
-}
 
-
-void CGraph::initAdjacencyList() 
+int CGraph::Connected(int vertex)
 {
-	_adjacency.resize(_vertexes);
-	for (int i = 0; i < _vertexes; ++i) 
+	int visVertxs = 1;
+	_visited[vertex] = true;
+	for (int i = 0; i < _adjacency[vertex].size(); ++i)
 	{
-		for (int j = 0; j < _vertexes; ++j) 
+		if (!_visited[_adjacency[vertex][i]])
 		{
-			if (_matrix[i][j]!=0) 
-			{
-				_adjacency[i].push_back(j);
-			}
+			visVertxs += Connected(_adjacency[vertex][i]);
 		}
 	}
+	return visVertxs;
 }
 
-
-bool CGraph::HasCycles(int current, int source) 
+bool CGraph::HasCycles()
 {
-	if (_visited[current]) 
+	for (int i = 0; i < _vertexes; ++i)
 	{
-		return true;
-	}
-	_visited[current] = true;
-	for (int i = 0; i < _vertexes; ++i) 
-	{
-		if (_visited[i] && _matrix[current][i]) 
-		{
-			if (HasCycles(i, current)) 
-			{
-				return true;
-			}
-		} 
-		else if (i != source) 
+		if (!_visited[i] && DFSforCycles(i))
 		{
 			return true;
 		}
 	}
+	_visited = new bool[_vertexes] {false};
 	return false;
+}
+
+bool CGraph::DFSforCycles(int vertex)
+{
+	if (!_visited[vertex]) 
+	{
+		_colors[vertex] = 1;
+		_visited[vertex] = true;
+		for (int j = 0; j < _adjacency[vertex].size(); ++j)
+		{
+			if (!_visited[_adjacency[vertex][j]] && DFSforCycles(_adjacency[vertex][j]))
+			{
+				return true;
+			}
+			else if (_colors[_adjacency[vertex][j]] == 1)
+			{
+				return true;
+			}
+		}
+		_colors[vertex] = 2;
+		return false;
+	}
 }
 
 bool CGraph::IsTree() 
 {
+	
+	_colors.resize(_vertexes, 0);
 	_visited = new bool[_vertexes] {false};
-	DFSprep(0);
-	for (int i = 0; i < _vertexes; ++i) 
-	{
-		if (!_visited[i]) 
-		{
-			delete[] _visited;
-			return false;
-		}
-	}
-	delete[] _visited;
-
-	_visited = new bool[_vertexes] {false};
-	if (HasCycles(0, -1)) 
-	{
-		delete[] _visited;
-		return false;
-	}
-	delete[] _visited;
-	return true;
+	return (!HasCycles() && (Connected(0) == _vertexes));
 }
+
+
+
 
 void CGraph::conComponents()
 {
+	_visited = new bool[_vertexes] {false};
+	std::vector<int> component;
 	for (int i = 0; i < _vertexes; ++i)
 	{
 		if (!_visited[i])
 		{
-			std::vector<int> component;
-			_visited = new bool[_vertexes] {false};
+			component.clear();
 			DFSforConComps(i, component);
 			_conComponents.push_back(component);
 		}
@@ -218,98 +233,130 @@ void CGraph::conComponents()
 
 void CGraph::DFSforConComps(int at, std::vector<int>& component) 
 {
-	if (_visited[at]) 
-	{
-		return;
-	}
+
 	_visited[at] = true;
 	component.push_back(at);
-	for (int j = 0; j < _vertexes; ++j) 
+	for (int j = 0; j < _adjacency[at].size(); ++j) 
 	{
-		if (_matrix[at][j] && !_visited[j]) 
+		if (!_visited[_adjacency[at][j]])
 		{
-			DFSforConComps(j, component);
+			DFSforConComps(_adjacency[at][j], component);
 		}
 	}
 }
 
 void CGraph::bridgeSearch() 
 {
-	std::vector<bool> visitedVertices(_vertexes, false);
-	std::vector<int> disc(_vertexes, -1);
-	std::vector<int> low(_vertexes, -1);
-	
-	DFSforBridges(0, -1, visitedVertices, disc, low);
+	_visited = new bool[_vertexes] {false};
+	_disc.resize(_vertexes, -1);
+	_low.resize(_vertexes, -1);
+	_timer = 0;
+	for (int i = 0; i < _vertexes; i++) 
+	{
+		if (!_visited[i]) 
+		{
+			DFSforBridges(i, -1);
+		}
+	}
+	_disc.clear();
+	_low.clear();
 }
 
-void CGraph::DFSforBridges(int at, int parent, std::vector<bool>& visitedVertices, std::vector<int>& disc, std::vector<int>& low)
+void CGraph::DFSforBridges(int at, int parent)
 {
-	visitedVertices[at] = true;
-	disc[at] = low[at] = ++timer;
+	_visited[at] = true;
+	++_timer;
+	_disc[at] = _timer;
+	_low[at] = _timer;
 
-	for (int i = 0; i < _vertexes; ++i) {
-		if (_matrix[at][i]) {
-			if (!visitedVertices[i]) {
-				DFSforBridges(i, at, visitedVertices, disc, low);
-				low[at] = std::min(low[at], low[i]);
-				if (low[i] > disc[at]) {
-					_bridges.push_back(SEdge(at, i, 1)); 
-				}
-			}
-			else if (i != parent) {
-				low[at] = std::min(low[at], disc[i]);
+	for (int i = 0; i < _adjacency[at].size(); ++i) 
+	{
+		if (_adjacency[at][i] == parent)
+		{
+			continue;
+		}
+		if (_visited[_adjacency[at][i]]) 
+		{
+			_low[at] = std::min(_low[at], _disc[_adjacency[at][i]]);
+		}
+		else 
+		{
+			DFSforBridges(_adjacency[at][i], at);
+			_low[at] = std::min(_low[at], _low[_adjacency[at][i]]);
+			if (_low[_adjacency[at][i]] > _disc[at]) 
+			{
+				_bridges.push_back({ at, _adjacency[at][i], 1 });
 			}
 		}
 	}
 }
+
 
 void CGraph::strongConComponents()
 {
-	time.resize(_vertexes, 0);
-	stack.clear();
-	lowlink.resize(_vertexes, 0);
-	color.resize(_vertexes, 0);
-	int vertcount = 0;
-	for (int i = 0; i<_vertexes;++i) 
+	_inStack.resize(_vertexes, false);
+	_forwardStack.clear();
+	_visited = new bool[_vertexes] {false};
+	for (int i = 0; i < _vertexes; ++i)
 	{
-		if (!time[i])
+		if (!_visited[i])
 		{
-			DFSforSCC(i, vertcount);
+			DFSforSCCFrontwards(i);
 		}
 	}
+
+	reverseGraph.clear();
+	reverseGraph.resize(_vertexes);
+	for (int i = 0; i < _vertexes; ++i)
+	{
+		for (int j = 0; j < _adjacency[i].size(); ++j)
+		{
+			reverseGraph[_adjacency[i][j]].push_back(i);
+		}
+	}
+
+	_sConComp.clear();
+	_visited = new bool[_vertexes] {false};
+	while (!_forwardStack.empty())
+	{
+		int vertex = 0;
+		vertex = _forwardStack.back();
+		_forwardStack.pop_back();
+		if (!_visited[vertex])
+		{
+			DFSforSCCBackwards(vertex);
+			_SCC.push_back(_sConComp);
+			_sConComp.clear();
+		}
+	}
+
+	delete[] _visited;
 }
 
-void CGraph::DFSforSCC(int at, int vertcount)
+void CGraph::DFSforSCCFrontwards(int at)
 {
-	color[at] = 1;
-	time[at] = vertcount;
-	lowlink[at] = vertcount;
-	vertcount++;
-	stack.push_back(at);
-	for (int i = 0; i < _adjacency[at].size(); ++i) 
+	_visited[at] = true;
+	for (int i = 0; i < _adjacency[at].size(); ++i)
 	{
-		if (!color[i])
+		int neighbor = _adjacency[at][i];
+		if (!_visited[neighbor])
 		{
-			DFSforSCC(i, vertcount);
-			lowlink[at] = std::min(lowlink[at], lowlink[i]);
-		}
-		else if (color[i] == 1)
-		{
-			lowlink[at] = std::min(lowlink[at], time[i]);
+			DFSforSCCFrontwards(neighbor);
 		}
 	}
-	if (lowlink[at] == time[at]) 
-	{
-		int j = 0;
-		std::vector<int> stemp;
-		while (j != at) 
-		{
-			j = stack.back();
-			stack.pop_back();
-			stemp.push_back(j);
-		}
-		_SCC.push_back(stemp);
-	}
+	_forwardStack.push_back(at);
 }
 
-
+void CGraph::DFSforSCCBackwards(int at)
+{
+	_visited[at] = true;
+	_sConComp.push_back(at);
+	for (int i = 0; i < reverseGraph[at].size(); ++i)
+	{
+		int neighbor = reverseGraph[at][i];
+		if (!_visited[neighbor])
+		{
+			DFSforSCCBackwards(neighbor);
+		}
+	}
+}

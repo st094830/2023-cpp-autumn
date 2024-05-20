@@ -4,11 +4,11 @@
 int main(int argc, char* argv[])
 {
 	CGraph graph;
-	graph.Solve();
+	graph.Solve("FisrtGraph");
 	graph.SolveMatrix();
-	graph.SolveStrongCC();
 	graph.SolveTreeCheck();
 	graph.SolveConComponents();
-
+	graph.SolveBridgeCheck();
+	graph.SolveStrongCC();
 	return EXIT_SUCCESS;
 }

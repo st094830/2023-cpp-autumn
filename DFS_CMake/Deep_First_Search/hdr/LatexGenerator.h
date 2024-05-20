@@ -11,16 +11,17 @@ struct LatexGenerator
 {
 public:
 	LatexGenerator() {};
-	LatexGenerator(const std::string _pathName);
-	~LatexGenerator() { std::filesystem::remove_all(directory); }
+	LatexGenerator(const std::string _pathName, std::string graphName);
+	std::filesystem::path LatexGenerator::createDir();
 	void DataWriterMatrix(const std::vector<std::vector<int>> _matrix);
 	void DataWriterAdjacency(const std::vector<std::vector<int>> _adjacency);
 	void DataWriterConCom(const std::vector<std::vector<int>> _conComponents);
-	void DataWriterIsTree(const std::vector<std::vector<int>> Matrix, bool isTree);
+	void DataWriterIsTree(bool isTree);
 	void DataWriterBridges(const std::vector<SEdge> _bridges);
 	void DataWriterSSC(const std::vector<std::vector<int>> _SCC);
 private:
 	std::filesystem::path directory;
+	std::string graphName;
 };
 
 

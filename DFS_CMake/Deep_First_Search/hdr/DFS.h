@@ -21,9 +21,7 @@ public:
 	void initMatrixFromEdges();
 	void initAdjacencyList();
 
-	// Поиск в глубину
-	void DFSprep(int target);
-	void DFS(int at);
+	
 
 	// Соседи вершины at
 	void connectedVertexesCount(int at);
@@ -32,8 +30,9 @@ public:
 	void conComponents();
 
 	// Проверка на дерево (включая проверку на циклы)
-	bool HasCycles(int current, int source);
 	bool IsTree();
+	bool HasCycles();
+	int Connected(int vertex);
 
 	// Поиск мостов в графе
 	void bridgeSearch();
@@ -43,7 +42,7 @@ public:
 	void strongConComponents();
 
 	// Вывод данных в формате .tex
-	void Solve();
+	void Solve(std::string _graphName);
 	
 	void SolveMatrix();
 	void SolveAdjacency();
@@ -63,12 +62,21 @@ private:
 	int _vertexes;
 	int _edges;
 	SEdge* _edge;
+	std::string graphName;
+	int _timer;
 	
 	//DFS-s
+	void DFS(int at);
 	void DFSforConComps(int at, std::vector<int>& component);
-	void DFSforBridges(int at, int parent, std::vector<bool>& visitedVertices, std::vector<int>& disc, std::vector<int>& low);
-	void DFSforSCC(int at, int vertcount);
+	bool DFSforCycles(int vertex);
+	void DFSforSCC(int at);
+	void DFSforBridges(int at, int parent);
+	void DFSforSCCFrontwards(int at);
+	void DFSforSCCBackwards(int at);
+	std::vector<int> _colors;
 	bool* _visited;
+	std::vector<int> _disc;
+	std::vector<int> _low;
 
 
 	// Solves
@@ -76,13 +84,11 @@ private:
 	std::vector<SEdge> _bridges;
 	std::vector<std::vector<int>> _SCC;
 	
-	// SCC Tarjan algthm preparations
-	int timer = 0;
-	std::vector<int> time;
-	std::vector<int> stack;
-	std::vector<int> lowlink;
-	std::vector<int> color;
-	int vertcount = 0;
+	// SCC Kosaraju algthm preparations
+	std::vector<bool> _inStack;
+	std::vector<int> _forwardStack;
+	std::vector<int> _sConComp;
+	std::vector<std::vector<int>> reverseGraph;
 
 };
 

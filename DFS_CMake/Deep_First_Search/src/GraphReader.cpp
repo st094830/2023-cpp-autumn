@@ -1,4 +1,4 @@
-#include "GraphReader.h"
+﻿#include "GraphReader.h"
 
 std::vector<SEdge> GraphReader::readEdges() {
 
@@ -10,15 +10,19 @@ std::vector<SEdge> GraphReader::readEdges() {
             int start;
             int end;
             int weight;
-            char ch;
 
-            if (iss >> start >> end >> weight) 
+            if (iss >> start >> end)
+            {
+                edges.push_back({ start - 1, end - 1, 1 });
+            }
+            else if (iss >> start >> end >> weight)
             {
                 edges.push_back({ start - 1, end - 1, weight });
-            }
-            else 
+            } 
+            else
             {
                 std::cerr << "Invalid graph syntax";
+                break;
             }
             
         }
